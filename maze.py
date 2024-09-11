@@ -9,7 +9,7 @@ class Maze:
         self.thickness = 4
 
         self.grid_cells = [
-            Cell(cols, rows, self.thickness)
+            Cell(col, row, self.thickness)
             for row in range(self.rows)
             for col in range(self.cols)
         ]
@@ -28,8 +28,8 @@ class Maze:
             current.walls["top"] = False
             next.walls["bottom"] = False
         elif dy == -1:
-            current.walls["top"] = False
-            next.walls["bottom"] = False
+            current.walls["bottom"] = False
+            next.walls["top"] = False
 
     # generate maze
     def generate_maze(self):
@@ -49,5 +49,4 @@ class Maze:
                 current_cell = next_cell
             elif array:
                 current_cell = array.pop()
-
         return self.grid_cells
